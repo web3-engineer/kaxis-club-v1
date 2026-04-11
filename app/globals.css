@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@keyframes blurReveal {
+  0% {
+    filter: blur(15px);
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  30% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  70% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    filter: blur(15px);
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+.animate-blur-reveal {
+  animation: blurReveal 2s ease-in-out forwards;
+}
+
+@media (prefers-color-scheme: light) {
+  @keyframes crypto-glow {
+
+    0%,
+    100% {
+      color: #000000;
+    }
+
+    50% {
+      color: #2563eb;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @keyframes crypto-glow {
+
+    0%,
+    100% {
+      color: #e2e8f0;
+      text-shadow: 0 0 15px rgba(226, 232, 240, 0.2);
+    }
+
+    50% {
+      color: #38bdf8;
+      text-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+    }
+  }
+}
+
+.animate-crypto {
+  animation: crypto-glow 4s ease-in-out infinite;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* BARALHO INTERATIVO */
+.deck-wrapper {
+  position: relative;
+  width: 260px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  z-index: 20;
+}
+
+.playing-card {
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: bottom center;
+  border-radius: 1.5rem;
+}
+
+.card-1 {
+  transform: rotate(-6deg) translateX(-8px);
+  z-index: 1;
+}
+
+.card-2 {
+  transform: rotate(-3deg) translateX(-4px);
+  z-index: 2;
+}
+
+.card-3 {
+  transform: rotate(0deg) translateX(0px);
+  z-index: 3;
+}
+
+.card-4 {
+  transform: rotate(3deg) translateX(4px);
+  z-index: 4;
+}
+
+.card-5 {
+  transform: rotate(6deg) translateX(8px);
+  z-index: 5;
+}
+
+.deck-wrapper:hover .card-1 {
+  transform: rotate(-30deg) translateX(-110px) translateY(15px);
+}
+
+.deck-wrapper:hover .card-2 {
+  transform: rotate(-15deg) translateX(-55px) translateY(0px);
+}
+
+.deck-wrapper:hover .card-3 {
+  transform: rotate(0deg) translateX(0px) translateY(-15px);
+  box-shadow: 0 0 50px rgba(56, 189, 248, 0.5);
+}
+
+.deck-wrapper:hover .card-4 {
+  transform: rotate(15deg) translateX(55px) translateY(0px);
+}
+
+.deck-wrapper:hover .card-5 {
+  transform: rotate(30deg) translateX(110px) translateY(15px);
+}
+
+/* BRILHO HOLOGRÁFICO DOS CARDS DE TIER */
+.holo-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-20deg);
+  transition: all 0.8s ease;
+  pointer-events: none;
+}
+
+.collectible-card:hover .holo-shine {
+  left: 200%;
+}
+
+/* --- NEW ANIMATIONS --- */
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
