@@ -95,7 +95,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-6 rounded-full bg-white/40 dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm backdrop-blur-md">
               <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
               <span className="text-[10px] md:text-xs font-mono tracking-wide text-black/80 dark:text-white/80 uppercase">
-                Plataforma Ativa
+                Powered by Solana
               </span>
             </div>
 
@@ -105,7 +105,7 @@ export default function Home() {
             </h1>
 
             <p className="text-black/60 dark:text-white/60 text-base md:text-lg max-w-md font-light leading-relaxed mb-8">
-              O único clube de benefícios que converte seus gastos em rendimentos automáticos através da tecnologia blockchain.
+              Um cupom. Vários benefícios.
             </p>
 
             <Link href="/login" className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl text-sm font-medium transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
@@ -151,13 +151,13 @@ export default function Home() {
         <section id="parceiros" className="w-full max-w-7xl px-4 md:px-6 py-24 mx-auto reveal-on-scroll">
           <div className="max-w-4xl mx-auto mb-16 text-center">
             <span className="text-blue-600 dark:text-blue-400 text-xs md:text-sm font-mono tracking-widest uppercase mb-3 block">
-              Rede Integrada
+
             </span>
             <h2 className="text-3xl md:text-5xl font-sans font-medium text-black dark:text-white mb-6">
               Aceito nas maiores marcas.
             </h2>
             <p className="text-black/60 dark:text-white/60 text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
-              Utilize seu saldo, ganhe benefícios e acesse vantagens exclusivas nas principais lojas físicas e digitais do Brasil e do mundo.
+              Utilize seu saldo, ganhe benefícios e acesse vantagens exclusivas nas principais lojas físicas e digitais do Brasil.
             </p>
           </div>
 
@@ -265,21 +265,21 @@ export default function Home() {
         </section>
       </main>
 
-     {/* 5. COMO FAZEMOS */}
-<section id="como-fazemos" className="w-full bg-white dark:bg-zinc-950 py-24 overflow-hidden">
-  <div className="max-w-7xl mx-auto px-4 md:px-6">
-    <div className="text-center mb-16 md:mb-20 reveal-on-scroll">
-      <span className="text-blue-600 dark:text-blue-400 text-xs md:text-sm font-mono tracking-widest uppercase mb-3 block">
-        Processo
-      </span>
-      <h2 className="text-3xl md:text-5xl font-sans font-medium text-black dark:text-white">
-        Como fazemos isso.
-      </h2>
-    </div>
+      {/* 5. COMO FAZEMOS */}
+      <section id="como-fazemos" className="w-full bg-white dark:bg-zinc-950 py-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="text-center mb-16 md:mb-20 reveal-on-scroll">
+            <span className="text-blue-600 dark:text-blue-400 text-xs md:text-sm font-mono tracking-widest uppercase mb-3 block">
+              Processo
+            </span>
+            <h2 className="text-3xl md:text-5xl font-sans font-medium text-black dark:text-white">
+              Como fazemos isso.
+            </h2>
+          </div>
 
-    {/* ESTILOS DE SINCRONIZAÇÃO DA ENERGIA E DOS CARDS */}
-    <style>
-      {`
+          {/* ESTILOS DE SINCRONIZAÇÃO DA ENERGIA E DOS CARDS */}
+          <style>
+            {`
         /* Movimento da partícula de energia */
         @keyframes flow-y {
           0% { top: -10%; opacity: 0; }
@@ -325,65 +325,65 @@ export default function Home() {
         .animate-pulse-node { animation: sync-node 4s linear infinite; }
         .animate-pulse-dot { animation: sync-dot 4s linear infinite; }
       `}
-    </style>
+          </style>
 
-    <div className="relative max-w-5xl mx-auto">
-      {/* FIO DE CONEXÃO (MOBILE - VERTICAL)
+          <div className="relative max-w-5xl mx-auto">
+            {/* FIO DE CONEXÃO (MOBILE - VERTICAL)
         Prioridade Mobile-First. Linha desce pela esquerda conectando como timeline. 
       */}
-      <div className="md:hidden absolute top-0 bottom-0 left-8 -translate-x-1/2 w-[2px] bg-gradient-to-b from-transparent via-black/10 dark:via-white/10 to-transparent z-0">
-        <div className="absolute left-1/2 -translate-x-1/2 h-48 w-[3px] bg-gradient-to-b from-transparent via-blue-500 to-transparent blur-[1px] animate-comet-y z-10" />
-      </div>
+            <div className="md:hidden absolute top-0 bottom-0 left-8 -translate-x-1/2 w-[2px] bg-gradient-to-b from-transparent via-black/10 dark:via-white/10 to-transparent z-0">
+              <div className="absolute left-1/2 -translate-x-1/2 h-48 w-[3px] bg-gradient-to-b from-transparent via-blue-500 to-transparent blur-[1px] animate-comet-y z-10" />
+            </div>
 
-      {/* FIO DE CONEXÃO (DESKTOP - HORIZONTAL)
+            {/* FIO DE CONEXÃO (DESKTOP - HORIZONTAL)
         Oculto no mobile, assume em telas médias/grandes.
       */}
-      <div className="hidden md:block absolute top-8 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent z-0">
-        <div className="absolute top-1/2 -translate-y-1/2 w-48 h-[3px] bg-gradient-to-r from-transparent via-blue-500 to-transparent blur-[1px] animate-comet-x z-10" />
-      </div>
-
-      {/* GRID DE ETAPAS */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-20">
-        {howItWorksSteps.map((item, i) => (
-          <div 
-            key={i} 
-            /* No Mobile: padding left maior (pl-16) para não encostar na linha vertical.
-               No Desktop: padding top maior (pt-16) para não encostar na linha horizontal. */
-            className="group relative flex flex-col p-8 pl-16 md:pl-8 pt-8 md:pt-16 rounded-[2rem] border border-black/5 dark:border-white/5 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm transition-all duration-300"
-          >
-            {/* CAMADA DE BRILHO (Acende quando o cometa passa) */}
-            <div 
-              className="absolute inset-0 rounded-[2rem] border-2 border-transparent bg-blue-500/[0.02] dark:bg-blue-500/[0.04] opacity-0 animate-pulse-layer pointer-events-none z-0"
-              style={{ animationDelay: `${i * 0.9}s` }} /* Atraso sequencial matemático */
-            />
-
-            {/* NÓ DE CONEXÃO (A bolinha no fio) */}
-            <div 
-              className="absolute left-8 top-8 md:left-1/2 md:top-8 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-950 border-2 border-black/20 dark:border-white/20 z-30 flex items-center justify-center animate-pulse-node group-hover:border-blue-500 group-hover:scale-110 transition-all duration-300 cursor-pointer"
-              style={{ animationDelay: `${i * 0.9}s` }}
-            >
-              {/* Núcleo do Nó piscando */}
-              <div 
-                className="w-1.5 h-1.5 rounded-full bg-blue-500 opacity-0 animate-pulse-dot group-hover:opacity-100 group-hover:scale-100 group-hover:shadow-[0_0_12px_2px_rgba(59,130,246,0.8)] transition-all duration-300"
-                style={{ animationDelay: `${i * 0.9}s` }}
-              />
+            <div className="hidden md:block absolute top-8 -translate-y-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent z-0">
+              <div className="absolute top-1/2 -translate-y-1/2 w-48 h-[3px] bg-gradient-to-r from-transparent via-blue-500 to-transparent blur-[1px] animate-comet-x z-10" />
             </div>
 
-            {/* CONTEÚDO DO CARD (Sem os números grandes) */}
-            <div className="relative z-10">
-              <h3 className="text-xl font-sans font-medium text-black dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-black/60 dark:text-white/50 text-sm md:text-base font-light leading-relaxed">
-                {item.desc}
-              </p>
+            {/* GRID DE ETAPAS */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-20">
+              {howItWorksSteps.map((item, i) => (
+                <div
+                  key={i}
+                  /* No Mobile: padding left maior (pl-16) para não encostar na linha vertical.
+                     No Desktop: padding top maior (pt-16) para não encostar na linha horizontal. */
+                  className="group relative flex flex-col p-8 pl-16 md:pl-8 pt-8 md:pt-16 rounded-[2rem] border border-black/5 dark:border-white/5 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm transition-all duration-300"
+                >
+                  {/* CAMADA DE BRILHO (Acende quando o cometa passa) */}
+                  <div
+                    className="absolute inset-0 rounded-[2rem] border-2 border-transparent bg-blue-500/[0.02] dark:bg-blue-500/[0.04] opacity-0 animate-pulse-layer pointer-events-none z-0"
+                    style={{ animationDelay: `${i * 0.9}s` }} /* Atraso sequencial matemático */
+                  />
+
+                  {/* NÓ DE CONEXÃO (A bolinha no fio) */}
+                  <div
+                    className="absolute left-8 top-8 md:left-1/2 md:top-8 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white dark:bg-zinc-950 border-2 border-black/20 dark:border-white/20 z-30 flex items-center justify-center animate-pulse-node group-hover:border-blue-500 group-hover:scale-110 transition-all duration-300 cursor-pointer"
+                    style={{ animationDelay: `${i * 0.9}s` }}
+                  >
+                    {/* Núcleo do Nó piscando */}
+                    <div
+                      className="w-1.5 h-1.5 rounded-full bg-blue-500 opacity-0 animate-pulse-dot group-hover:opacity-100 group-hover:scale-100 group-hover:shadow-[0_0_12px_2px_rgba(59,130,246,0.8)] transition-all duration-300"
+                      style={{ animationDelay: `${i * 0.9}s` }}
+                    />
+                  </div>
+
+                  {/* CONTEÚDO DO CARD (Sem os números grandes) */}
+                  <div className="relative z-10">
+                    <h3 className="text-xl font-sans font-medium text-black dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-black/60 dark:text-white/50 text-sm md:text-base font-light leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* 6. PREÇO */}
       <section id="preco" className="w-full max-w-7xl px-4 md:px-6 py-24 mx-auto scroll-mt-20">
@@ -422,16 +422,12 @@ export default function Home() {
             <p className="text-sm font-light leading-relaxed text-black/60 dark:text-white/60 mb-6">
               $KAXIS é o coração do ecossistema. Funciona como recompensa premium, com vantagens exclusivas para membros.
             </p>
-            <div className="flex gap-4 font-mono text-xs text-black/50 dark:text-white/50 uppercase tracking-widest">
-              <span className="px-4 py-2 border border-black/10 dark:border-white/10 rounded-full">Stake para APY</span>
-              <span className="px-4 py-2 border border-black/10 dark:border-white/10 rounded-full">Governance</span>
-            </div>
           </div>
           <div className="flex-1 flex justify-center">
             <div className="w-64 h-64 md:w-80 md:h-80 relative rounded-full border border-blue-500/30 flex items-center justify-center animate-spin-slow">
               <div className="absolute w-3 h-3 bg-blue-500 rounded-full -top-1.5 shadow-[0_0_15px_blue]"></div>
               <div className="w-3/4 h-3/4 rounded-full border border-purple-500/30 flex items-center justify-center">
-                <span className="text-4xl text-black dark:text-white font-serif tracking-[0.2em] animate-pulse-slow">KAXIS</span>
+                <span className="text-4xl text-black dark:text-white font-serif tracking-[0.2em] animate-pulse-slow">KAXIS CLUB</span>
               </div>
             </div>
           </div>

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Kaxis Club | Cashback Inteligente",
-  description: "O primeiro clube de benefícios focado em rendimentos automáticos para membros exclusivos.",
+  description: "Um Cupom. Benefícios Infinitos.",
 };
 
 export default function RootLayout({

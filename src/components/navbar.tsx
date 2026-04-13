@@ -5,30 +5,30 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "Como fazemos",  id: "como-fazemos" },
-  { label: "Cartões",       id: "tiers" },
-  { label: "Preço",         id: "preco" },
-  { label: "Token",         id: "token" },
-  { label: "Depoimentos",   id: "depoimentos" },
-  { label: "FAQ",           id: "faq" },
-  { label: "Contato",       id: "contato" },
+  { label: "Como fazemos", id: "como-fazemos" },
+  { label: "Parceiros", id: "tiers" },
+  { label: "Preço", id: "preco" },
+  { label: "Token", id: "token" },
+  { label: "Depoimentos", id: "depoimentos" },
+  { label: "FAQ", id: "faq" },
+  { label: "Contato", id: "contato" },
 ];
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
-  const [isDarkMode, setIsDarkMode]       = useState(true);
-  const [menuOpen, setMenuOpen]           = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
   // Theme init
   useEffect(() => {
-    const root  = window.document.documentElement;
+    const root = window.document.documentElement;
     const isDark =
       localStorage.getItem("theme") === "dark" ||
       (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches);
     setIsDarkMode(isDark);
     if (isDark) root.classList.add("dark");
-    else        root.classList.remove("dark");
+    else root.classList.remove("dark");
   }, []);
 
   const toggleTheme = () => {
@@ -74,10 +74,9 @@ export default function Navbar() {
   };
 
   const linkCls = (id: string) =>
-    `transition-all duration-200 ${
-      pathname === "/" && activeSection === id
-        ? "text-blue-600 dark:text-blue-400 font-bold"
-        : "text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white"
+    `transition-all duration-200 ${pathname === "/" && activeSection === id
+      ? "text-blue-600 dark:text-blue-400 font-bold"
+      : "text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white"
     }`;
 
   return (
@@ -137,9 +136,8 @@ export default function Navbar() {
 
       {/* Mobile Menu Drawer */}
       <div
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
-          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
       >
         {/* Backdrop */}
         <div
@@ -149,9 +147,8 @@ export default function Navbar() {
 
         {/* Drawer */}
         <div
-          className={`absolute top-0 right-0 h-full w-72 bg-white dark:bg-zinc-900 shadow-2xl flex flex-col transition-transform duration-300 ${
-            menuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`absolute top-0 right-0 h-full w-72 bg-white dark:bg-zinc-900 shadow-2xl flex flex-col transition-transform duration-300 ${menuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           <div className="p-6 border-b border-black/5 dark:border-white/5 flex justify-between items-center">
             <img src="/kaxis-logo.png" alt="KAXIS Logo" className="h-6 w-auto object-contain brightness-0 dark:invert" />
@@ -169,11 +166,10 @@ export default function Navbar() {
                 key={link.id}
                 href={`/#${link.id}`}
                 onClick={(e) => handleLinkClick(e, link.id)}
-                className={`px-4 py-3 rounded-xl text-sm font-medium ${
-                  pathname === "/" && activeSection === link.id
+                className={`px-4 py-3 rounded-xl text-sm font-medium ${pathname === "/" && activeSection === link.id
                     ? "bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400"
                     : "text-black/70 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
