@@ -115,7 +115,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           {/* Topbar Desktop */}
           <header className="hidden md:flex h-24 items-center justify-between px-10 shrink-0 z-10">
             <div className="text-black/40 dark:text-white/40 font-medium text-sm">
-              Visão Geral do seu Patrimônio
+              
             </div>
             <div className="flex items-center gap-6 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-md px-6 py-3 rounded-3xl border border-white/20 dark:border-white/5 shadow-sm">
               <div className="flex flex-col items-end mr-2 border-r border-black/10 dark:border-white/10 pr-6">

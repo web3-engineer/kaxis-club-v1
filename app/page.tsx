@@ -38,7 +38,7 @@ const howItWorksSteps = [
 
 const pricingPlans = [
   { name: "Explorer", price: "Free", perks: ["Acesso Básico", "1.5% Cashback Base", "Carteira Custodial"] },
-  { name: "Pro", price: "$ 15/mês", perks: ["Acesso Premium", "Até 3% Cashback", "Saques Livres de Taxa", "Prioridade Yield"] },
+  { name: "Pro", price: "$ 55/mês", perks: ["Acesso Premium", "Até 3% Cashback", "Saques Livres de Taxa", "Prioridade Yield"] },
   { name: "Whale Pass", price: "TBA", perks: ["Convite Exclusivo", "Até 8% Cashback", "Governança DAO", "Cartão Metálico"] }
 ];
 
@@ -93,7 +93,6 @@ export default function Home() {
     <>
       <Navbar />
 
-      {/* Importação da fonte Ubuntu Sans */}
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans:wght@400;500;700&display=swap');
@@ -125,8 +124,8 @@ export default function Home() {
       <main className={`flex flex-col items-center overflow-hidden transition-opacity duration-1000 bg-[#F2F4F7] dark:bg-[#050505] min-h-screen ${showPreloader ? 'opacity-0' : 'opacity-100'}`}>
 
         {/* 1. HERO & SPONSORS */}
-        <section id="home" className="relative w-full max-w-7xl px-4 md:px-12 pt-32 md:pt-40 pb-12 mx-auto flex flex-col items-center justify-between">
-          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-16 md:gap-8 mb-4">
+        <section id="home" className="relative w-full max-w-7xl px-4 md:px-12 pt-32 md:pt-32 pb-6 mx-auto flex flex-col items-center justify-between">
+          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8 mb-0">
 
             <div className="flex flex-col items-start z-10 reveal-on-scroll flex-1 w-full text-left">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-6 rounded-full bg-white/40 dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm backdrop-blur-md">
@@ -134,7 +133,6 @@ export default function Home() {
                 <span className="text-[10px] md:text-xs font-mono tracking-wide text-black/80 dark:text-white/80 uppercase">Powered by Solana</span>
               </div>
 
-              {/* TÍTULO COM TAMANHO AJUSTADO E FONTE UBUNTU SANS */}
               <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-sans font-medium tracking-tight mb-6 text-black dark:text-white leading-[1.1]">
                 1 Cupom. <span style={{ fontFamily: "'Ubuntu Sans', sans-serif" }} className="whitespace-nowrap font-bold">Vários Cashbacks.</span><br />
                 <span className="animate-crypto font-light italic opacity-80">Receba em Cripto.</span>
@@ -147,7 +145,7 @@ export default function Home() {
             </div>
 
             {/* 🃏 CARTÕES INTERATIVOS E DETACÁVEIS */}
-            <div className="flex-1 flex justify-center items-center w-full reveal-on-scroll delay-100 min-h-[450px] md:min-h-[550px]" ref={deckRef}>
+            <div className="flex-1 flex justify-center items-center w-full reveal-on-scroll delay-100 min-h-[400px] md:min-h-[500px]" ref={deckRef}>
 
               <div className="relative flex justify-center items-center w-64 h-96 md:w-[300px] md:h-[450px] group perspective-[1200px]">
                 {creditCards.map((card, index) => {
@@ -159,7 +157,6 @@ export default function Home() {
                   if (index === 1) hoverTransform = "group-hover:-translate-y-8 z-20";
                   if (index === 2) hoverTransform = "group-hover:translate-x-12 group-hover:-translate-y-4 md:group-hover:translate-x-24 group-hover:rotate-12";
 
-                  // Lógica de Destacamento (Menor zoom para não bater na Navbar)
                   let activeTransform = "";
                   if (isActive) {
                     activeTransform = "z-50 scale-105 md:scale-110 -translate-y-4 md:-translate-y-6 rotate-0 shadow-[0_30px_60px_rgba(0,0,0,0.6)]";
@@ -174,7 +171,6 @@ export default function Home() {
                       className={`absolute inset-0 cursor-pointer transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] origin-bottom ${hasActive ? activeTransform : hoverTransform}`}
                       style={{ zIndex: isActive ? 50 : (index === 1 && !hasActive ? 20 : 10) }}
                     >
-                      {/* Borda Animada */}
                       <div className="absolute inset-[-3px] rounded-[2.5rem] overflow-hidden">
                         <div
                           className="absolute inset-[-50%] w-[200%] h-[200%] opacity-50 group-hover:opacity-100 transition-opacity duration-500"
@@ -185,10 +181,8 @@ export default function Home() {
                         ></div>
                       </div>
 
-                      {/* Corpo do Cartão */}
                       <div className={`absolute inset-[3px] rounded-[2.5rem] overflow-hidden bg-gradient-to-br ${card.gradient} shadow-2xl flex flex-col items-center justify-center p-6 border border-white/10 dark:border-white/5`}>
 
-                        {/* Imagem em Next.js Image (Boas práticas) */}
                         <Image
                           src={card.src}
                           alt={card.alt}
@@ -197,11 +191,10 @@ export default function Home() {
                           className="object-cover z-0 mix-blend-overlay opacity-60"
                         />
 
-                        {/* Design Interno Overlay */}
                         <div className="relative z-10 w-full h-full flex flex-col justify-between pointer-events-none">
                           <div className="flex justify-between items-start w-full">
                             <span className="text-2xl opacity-80">💳</span>
-                            <span className="font-mono text-[10px] text-white/50 tracking-[0.2em] uppercase">Kaxis Protocol</span>
+                            <span className="font-mono text-[10px] text-white/50 tracking-[0.2em] uppercase">Kaxis Club</span>
                           </div>
 
                           <div className="w-10 h-8 rounded-md bg-gradient-to-br from-yellow-100/30 to-yellow-600/30 border border-white/20 backdrop-blur-sm mt-8"></div>
@@ -212,8 +205,8 @@ export default function Home() {
                             </div>
                             <div className="flex justify-between items-end w-full">
                               <div className="flex flex-col text-white/70 font-mono">
-                                <span className="text-[8px] uppercase tracking-widest opacity-60">Cardholder</span>
-                                <span className="text-xs md:text-sm tracking-widest">DON MARTINEZ</span>
+                                <span className="text-[8px] uppercase tracking-widest opacity-60">APY</span>
+                                <span className="text-xs md:text-sm tracking-widest">20%</span>
                               </div>
                               <div className="flex flex-col text-white/70 font-mono text-right">
                                 <span className="text-[8px] uppercase tracking-widest opacity-60">Valid Thru</span>
@@ -232,7 +225,7 @@ export default function Home() {
           </div>
 
           {/* 🔄 CARROSSEL INFINITO DE PARCEIROS COM NEXT/IMAGE */}
-          <div className="w-full mt-12 reveal-on-scroll delay-300">
+          <div className="w-full mt-2 reveal-on-scroll delay-300">
             <div className="relative w-full overflow-hidden flex items-center" style={{ maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
 
               <div className="flex animate-infinite-scroll hover:[animation-play-state:paused]">
@@ -274,7 +267,7 @@ export default function Home() {
         </section>
 
         {/* 2. DEPOIMENTOS */}
-        <section id="depoimentos" className="w-full pb-24 scroll-mt-20">
+        <section id="depoimentos" className="w-full pb-20 pt-10 scroll-mt-20">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-on-scroll">
               {["O nível de transparência do contrato de yield é absurdo.", "Nunca pensei que usar o cartão no mercado daria cripto.", "Sou lojista. A integração demorou 15 minutos."].map((text, i) => (
@@ -295,7 +288,7 @@ export default function Home() {
         </section>
 
         {/* 3. TOKEN ($KAXIS Utility) */}
-        <section id="token" className="relative w-full max-w-7xl px-4 md:px-6 py-24 mx-auto scroll-mt-20 overflow-hidden">
+        <section id="token" className="relative w-full max-w-7xl px-4 md:px-6 py-20 mx-auto scroll-mt-20 overflow-hidden">
           <div className="absolute inset-0 bg-blue-500/5 dark:bg-blue-500/10 rounded-[3rem] blur-3xl -z-10"></div>
           <div className="flex flex-col md:flex-row items-center gap-16 reveal-on-scroll">
             <div className="flex-1 text-left">
@@ -316,7 +309,7 @@ export default function Home() {
         </section>
 
         {/* 4. PREÇO */}
-        <section id="preco" className="w-full max-w-7xl px-4 md:px-6 py-24 mx-auto scroll-mt-20">
+        <section id="preco" className="w-full max-w-7xl px-4 md:px-6 py-20 mx-auto scroll-mt-20">
           <div className="text-center mb-16 reveal-on-scroll">
             <span className="text-blue-600 dark:text-blue-400 text-xs md:text-sm font-mono tracking-widest uppercase mb-3 block">Acesso</span>
             <h2 className="text-3xl md:text-5xl font-sans font-medium text-black dark:text-white">Assinaturas e Preços.</h2>
@@ -338,7 +331,7 @@ export default function Home() {
         </section>
 
         {/* 5. PROCESSO */}
-        <section id="como-fazemos" className="w-full bg-white dark:bg-zinc-950 py-24 overflow-hidden">
+        <section id="como-fazemos" className="w-full bg-white dark:bg-zinc-950 py-20 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <div className="text-center mb-16 md:mb-20 reveal-on-scroll">
               <span className="text-blue-600 dark:text-blue-400 text-xs md:text-sm font-mono tracking-widest uppercase mb-3 block">Processo</span>
@@ -380,7 +373,7 @@ export default function Home() {
         </section>
 
         {/* 6. FAQ */}
-        <section id="faq" className="w-full max-w-4xl px-4 md:px-6 py-24 mx-auto scroll-mt-20">
+        <section id="faq" className="w-full max-w-4xl px-4 md:px-6 py-20 mx-auto scroll-mt-20">
           <div className="text-center mb-16 reveal-on-scroll">
             <span className="text-blue-600 dark:text-blue-400 text-xs md:text-sm font-mono tracking-widest uppercase mb-3 block">FAQ</span>
             <h2 className="text-3xl md:text-5xl font-sans font-medium text-black dark:text-white">Dúvidas Frequentes.</h2>
