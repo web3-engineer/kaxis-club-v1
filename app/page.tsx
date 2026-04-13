@@ -136,8 +136,8 @@ export default function Home() {
 
               {/* TÍTULO COM TAMANHO AJUSTADO E FONTE UBUNTU SANS */}
               <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-sans font-medium tracking-tight mb-6 text-black dark:text-white leading-[1.1]">
-                1 Cupom. <span style={{ fontFamily: "'Ubuntu Sans', sans-serif" }} className="whitespace-nowrap font-bold">Vários Cashbacks</span><br />
-                <span className="animate-crypto font-light italic opacity-80">Vem pro Club.</span>
+                1 Cupom. <span style={{ fontFamily: "'Ubuntu Sans', sans-serif" }} className="whitespace-nowrap font-bold">Vários Cashbacks.</span><br />
+                <span className="animate-crypto font-light italic opacity-80">Receba em Cripto.</span>
               </h1>
 
               <p className="text-black/60 dark:text-white/60 text-base md:text-lg max-w-md font-light leading-relaxed mb-8"></p>
