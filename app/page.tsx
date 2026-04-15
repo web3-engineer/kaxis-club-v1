@@ -124,10 +124,12 @@ export default function Home() {
       <main className={`flex flex-col items-center overflow-hidden transition-opacity duration-1000 bg-[#F2F4F7] dark:bg-[#050505] min-h-screen ${showPreloader ? 'opacity-0' : 'opacity-100'}`}>
 
         {/* 1. HERO & SPONSORS */}
-        <section id="home" className="relative w-full max-w-7xl px-4 md:px-12 pt-32 md:pt-32 pb-6 mx-auto flex flex-col items-center justify-between">
-          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8 mb-0">
+        <section id="home" className="relative w-full max-w-7xl px-4 md:px-12 pt-28 md:pt-40 pb-6 mx-auto flex flex-col items-center justify-between">
 
-            <div className="flex flex-col items-start z-10 reveal-on-scroll flex-1 w-full text-left">
+          {/* Ajuste crucial para o Mobile: Mudamos para flex-col no mobile, mantendo o texto acima dos cartões */}
+          <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8 mb-0">
+
+            <div className="flex flex-col items-center lg:items-start z-10 reveal-on-scroll w-full lg:w-1/2 text-center lg:text-left pt-10 lg:pt-0">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-6 rounded-full bg-white/40 dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm backdrop-blur-md">
                 <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
                 <span className="text-[10px] md:text-xs font-mono tracking-wide text-black/80 dark:text-white/80 uppercase">Powered by Solana</span>
@@ -138,24 +140,25 @@ export default function Home() {
                 <span className="animate-crypto font-light italic opacity-80">Receba em Cripto.</span>
               </h1>
 
-              <p className="text-black/60 dark:text-white/60 text-base md:text-lg max-w-md font-light leading-relaxed mb-8"></p>
-              <Link href="/login" className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl text-sm font-medium transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+              <Link href="/login" className="mt-4 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl text-sm font-medium transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
                 Login / Cadastrar-se
               </Link>
             </div>
 
             {/* 🃏 CARTÕES INTERATIVOS E DETACÁVEIS */}
-            <div className="flex-1 flex justify-center items-center w-full reveal-on-scroll delay-100 min-h-[400px] md:min-h-[500px]" ref={deckRef}>
+            <div className="flex justify-center items-center w-full lg:w-1/2 reveal-on-scroll delay-100 min-h-[380px] md:min-h-[500px] mt-10 lg:mt-0" ref={deckRef}>
 
-              <div className="relative flex justify-center items-center w-64 h-96 md:w-[300px] md:h-[450px] group perspective-[1200px]">
+              {/* Reduzimos um pouco o tamanho no mobile (w-56 h-80) para garantir que caiba na tela sem quebrar a UI */}
+              <div className="relative flex justify-center items-center w-56 h-80 md:w-[300px] md:h-[450px] group perspective-[1200px]">
                 {creditCards.map((card, index) => {
                   const isActive = activeCard === card.id;
                   const hasActive = activeCard !== null;
 
+                  // Lógica de Leque ajustada para Mobile
                   let hoverTransform = "";
-                  if (index === 0) hoverTransform = "group-hover:-translate-x-12 group-hover:-translate-y-4 md:group-hover:-translate-x-24 group-hover:-rotate-12";
+                  if (index === 0) hoverTransform = "group-hover:-translate-x-10 group-hover:-translate-y-4 md:group-hover:-translate-x-24 md:group-hover:-translate-y-4 group-hover:-rotate-12";
                   if (index === 1) hoverTransform = "group-hover:-translate-y-8 z-20";
-                  if (index === 2) hoverTransform = "group-hover:translate-x-12 group-hover:-translate-y-4 md:group-hover:translate-x-24 group-hover:rotate-12";
+                  if (index === 2) hoverTransform = "group-hover:translate-x-10 group-hover:-translate-y-4 md:group-hover:translate-x-24 md:group-hover:-translate-y-4 group-hover:rotate-12";
 
                   let activeTransform = "";
                   if (isActive) {
@@ -193,14 +196,14 @@ export default function Home() {
 
                         <div className="relative z-10 w-full h-full flex flex-col justify-between pointer-events-none">
                           <div className="flex justify-between items-start w-full">
-                            <span className="text-2xl opacity-80">💳</span>
-                            <span className="font-mono text-[10px] text-white/50 tracking-[0.2em] uppercase">Kaxis Club</span>
+                            <span className="text-xl md:text-2xl opacity-80">💳</span>
+                            <span className="font-mono text-[8px] md:text-[10px] text-white/50 tracking-[0.2em] uppercase">Kaxis Club</span>
                           </div>
 
-                          <div className="w-10 h-8 rounded-md bg-gradient-to-br from-yellow-100/30 to-yellow-600/30 border border-white/20 backdrop-blur-sm mt-8"></div>
+                          <div className="w-8 h-6 md:w-10 md:h-8 rounded-md bg-gradient-to-br from-yellow-100/30 to-yellow-600/30 border border-white/20 backdrop-blur-sm mt-8"></div>
 
                           <div className="mt-auto">
-                            <div className="font-mono text-lg md:text-xl tracking-[0.15em] text-white/90 mb-4 drop-shadow-md">
+                            <div className="font-mono text-base md:text-xl tracking-[0.15em] text-white/90 mb-4 drop-shadow-md">
                               **** **** **** {1000 + card.id * 1111}
                             </div>
                             <div className="flex justify-between items-end w-full">
@@ -225,7 +228,7 @@ export default function Home() {
           </div>
 
           {/* 🔄 CARROSSEL INFINITO DE PARCEIROS COM NEXT/IMAGE */}
-          <div className="w-full mt-2 reveal-on-scroll delay-300">
+          <div className="w-full mt-8 md:mt-2 reveal-on-scroll delay-300">
             <div className="relative w-full overflow-hidden flex items-center" style={{ maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
 
               <div className="flex animate-infinite-scroll hover:[animation-play-state:paused]">

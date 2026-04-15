@@ -104,8 +104,8 @@ export default function Navbar() {
 
       <nav
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 font-sans ${scrolled
-            ? "bg-white/90 dark:bg-[#050505]/90 backdrop-blur-md border-b border-black/5 dark:border-white/5 shadow-sm py-3"
-            : "bg-transparent py-5"
+          ? "bg-white/90 dark:bg-[#050505]/90 backdrop-blur-md border-b border-black/5 dark:border-white/5 shadow-sm py-3"
+          : "bg-transparent py-5"
           }`}
         style={{ fontFamily: "'Ubuntu Sans', sans-serif" }}
       >
