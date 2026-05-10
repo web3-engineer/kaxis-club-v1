@@ -6,11 +6,10 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const navLinks = [
-  { label: "Como fazemos", id: "como-fazemos" },
-  { label: "Parceiros", id: "tiers" },
-  { label: "Preço", id: "preco" },
-  { label: "Token", id: "token" },
-  { label: "Depoimentos", id: "depoimentos" },
+  { label: "Jornada", id: "como-fazemos" },
+  { label: "Diferenciais", id: "diferenciais" },
+  { label: "Serviços", id: "servicos" },
+  { label: "Tecnologia", id: "tecnologia" },
   { label: "FAQ", id: "faq" },
   { label: "Contato", id: "contato" },
 ];
@@ -89,7 +88,7 @@ export default function Navbar() {
 
   const linkCls = (id: string) =>
     `transition-colors duration-200 ${pathname === "/" && activeSection === id
-      ? "text-blue-600 dark:text-blue-400 font-bold"
+      ? "text-teal-600 dark:text-teal-400 font-bold"
       : "text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white"
     }`;
 
@@ -116,7 +115,7 @@ export default function Navbar() {
             <div className="relative h-5 md:h-6 w-24 md:w-32">
               <Image
                 src="/kaxis-logo.png"
-                alt="KAXIS Logo"
+                alt="Melo Oftalmologia Logo"
                 fill
                 className="object-contain object-left brightness-0 dark:invert transition-all"
               />
@@ -148,10 +147,17 @@ export default function Navbar() {
             </button>
 
             <Link
-              href="/login"
-              className="hidden md:flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(37,99,235,0.2)] hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] whitespace-nowrap"
+              href="/crm"
+              className="hidden md:flex border border-black/20 dark:border-white/20 text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black px-6 py-2.5 rounded-full text-sm font-bold transition-all whitespace-nowrap"
             >
-              Acessar Conta
+              Clinic Dashboard
+            </Link>
+
+            <Link
+              href="/crm"
+              className="hidden md:flex bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-[0_0_15px_rgba(20,184,166,0.2)] hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] whitespace-nowrap"
+            >
+              Agendar Consulta
             </Link>
 
             {/* Hamburger — mobile only */}
@@ -185,7 +191,7 @@ export default function Navbar() {
         >
           <div className="p-6 border-b border-black/5 dark:border-white/5 flex justify-between items-center bg-black/5 dark:bg-white/5">
             <div className="relative h-5 w-24">
-              <Image src="/kaxis-logo.png" alt="KAXIS Logo" fill className="object-contain object-left brightness-0 dark:invert" />
+              <Image src="/kaxis-logo.png" alt="Melo Oftalmologia Logo" fill className="object-contain object-left brightness-0 dark:invert" />
             </div>
             <button
               onClick={() => setMenuOpen(false)}
@@ -202,7 +208,7 @@ export default function Navbar() {
                 href={`/#${link.id}`}
                 onClick={(e) => handleLinkClick(e, link.id)}
                 className={`px-4 py-3.5 rounded-2xl text-base font-medium transition-colors ${pathname === "/" && activeSection === link.id
-                  ? "bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400"
+                  ? "bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400"
                   : "text-black/70 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5"
                   }`}
               >
@@ -211,13 +217,20 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="p-6 border-t border-black/5 dark:border-white/5 bg-white dark:bg-[#0a0a0a]">
+          <div className="p-6 border-t border-black/5 dark:border-white/5 bg-white dark:bg-[#0a0a0a] flex flex-col gap-3">
             <Link
-              href="/login"
+              href="/crm"
               onClick={() => setMenuOpen(false)}
-              className="w-full flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-2xl text-base font-bold transition-all shadow-md shadow-blue-600/20"
+              className="w-full flex items-center justify-center border border-black/20 dark:border-white/20 text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black py-4 rounded-2xl text-base font-bold transition-all"
             >
-              Acessar Conta
+              Clinic Dashboard
+            </Link>
+            <Link
+              href="/crm"
+              onClick={() => setMenuOpen(false)}
+              className="w-full flex items-center justify-center bg-teal-600 hover:bg-teal-700 text-white py-4 rounded-2xl text-base font-bold transition-all shadow-md shadow-teal-600/20"
+            >
+              Agendar Consulta
             </Link>
           </div>
         </div>
